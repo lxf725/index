@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> -->
+		<title>测试页面</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<!-- <link rel="stylesheet" type="text/css" href="css/test.css"> -->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src=""></script>
+		<script>
+		var docEle = function() {
+		   return document.getElementById(arguments[0]) || false;
+		}
+		function openNewDiv(_id) {
+		    var m = "mask";
+		    if (docEle(_id)) document.removeChild(docEle(_id));
+		    if (docEle(m)) document.removeChild(docEle(m));
+		    // 新激活图层
+		    var newDiv = document.createElement("div");
+		    newDiv.id = _id;
+		    newDiv.style.position = "absolute";
+		    newDiv.style.zIndex = "9999";
+		    newDiv.style.width = "300px";
+		    newDiv.style.height = "300px";
+		    newDiv.style.top = "100px";
+		    newDiv.style.left = (parseInt(document.body.scrollWidth) - 300) / 2 + "px"; // 屏幕居中
+		    newDiv.style.background = "#EFEFEF";
+		    newDiv.style.border = "1px solid #860001";
+		    newDiv.style.padding = "5px";
+		    newDiv.innerHTML = "id:luckystar <select><option value='1'>aaaaaaaaa</option><option value='2'>bbbb</option><option value='c'>ccccccccc</option></select>";
+		    document.body.appendChild(newDiv);
+		    // mask图层
+		    var newMask = document.createElement("div");
+		    newMask.id = m;
+		    newMask.style.position = "absolute";
+		    newMask.style.zIndex = "100";
+		    newMask.style.width = document.body.scrollWidth + "px";
+		    newMask.style.height = document.body.scrollHeight + "px";
+		    newMask.style.top = "0px";
+		    newMask.style.left = "0px";
+		    newMask.style.background = "#000";
+		    newMask.style.filter = "alpha(opacity=40)";
+		    newMask.style.opacity = "0.40";
+		    document.body.appendChild(newMask);
+		    // 跳转到其他页面
+		    var otherPage = document.createElement("input");
+		    otherPage.type="button";
+		    otherPage.onclick=function() {
+		    	window.open("http://www.baidu.com");
+		 	};
+		    otherPage.value = '跳转';
+		    // 关闭mask和新图层
+		    var newA = document.createElement("input");
+		    //newA.href = "#";
+		    newA.value = "关闭激活层";
+		    newA.type="button"
+		    newA.onclick = function() {
+			    document.body.removeChild(docEle(_id));
+			    document.body.removeChild(docEle(m));
+			    return false;
+		    }
+		    newDiv.appendChild(newA);
+		    newDiv.appendChild(otherPage);
+		}
+
+
+		</script>
+	</head>
+	<body>	
+		<div id="header">
+			<div class="main">
+				<div class="logo">
+					<img src="images/uyiuyao-3.0btn.png" class="logo_img" />
+					<ul id="navigation">
+						<li><a href="">首页</a></li>
+						<li><a href="">产品</a></li>
+						<li><a href="">解决方案</a></li>
+						<li><a href="">加入我们</a></li>
+						<li><a href="">售后服务</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div>
+				<table cellspacing="0" cellpadding="0">
+		            <tr>
+		                <td>
+		                    <img src="images/bg.png" alt=""/>
+		                </td>
+		            </tr>
+		        </table>
+	        </div>
+		</div>
+	    <div id="cont">
+		    <div class="box">
+		          <div>标记语言和CSS确实有些繁琐，但是效果却很好！做完这些已经可以完成工作了，但是如果我们希望页面上有真实的内容会怎样呢？将html和body元素的overflow属性设置为hidden是会让你对这一点有些担心的，因为在一个没有滚动条的网站上，那样会完全切除超出区域范围的内容。为了让可滚动的内容正确显示，我们将要介绍另外一个封装元素。它会位于背景的前面，宽度和高度是完全展开的浏览器的大小，而且将overflow属性设置回auto（可滚动）。然后我们就可以安全的将内容放入这个封装元素之中了。
+		          </div>
+		          <p>地方的风景地离开房间了地方房间的了房间的了房间的路口附近鹅肉体弱了房间了空间的了反馈的减肥快速减肥了 的路径法律的房间的了房间的路口附近了对方将两块地了房间了的空间发了的咖啡加两块到了来得及法律的房间了的解放路的解放路的减肥的</p>
+		    </div>
+
+			<div class="popup">
+				<a href="#" _fcksavedurl="#" onclick="openNewDiv('newDiv');return false;">激活新层</a>
+				<p>网页内容网页内容网页内容</p>
+				<p>网页内容网页内容网页内容</p>
+				<p>网页内容网页内容网页内容</p>
+				<p>网页内容网页内容网页内容</p>
+				<p>网页内容网页内容网页内容</p>
+				<p>网页内容网页内容网页内容</p>
+				<p>网页内容网页内容网页内容</p>
+			</div>
+
+		</div>			
+		<div id="footer">
+			<div class="main">
+				<p>上海优伊网络科技有限公司</p>
+			</div>
+		</div>
+
+
+	</body>
+</html>
