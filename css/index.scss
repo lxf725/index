@@ -1,0 +1,138 @@
+/* 定义变量 */
+$color:#fff;
+$pageWidth:960px;
+$marginContent:0 auto;
+$backgroundColor:green;
+$fontFamily: "微软雅黑";
+$borderStyle:none;
+$widthImg:200px;
+$textAlign:center;
+
+*{
+	margin:0;
+	padding:0;
+}
+
+html, body, #content, #content table, #content td {
+	height:100%;
+	width:100%;
+	overflow:hidden;
+	font-family:"微软雅黑";
+	vertical-align: middle;
+}
+body{
+	background-color:#ffffff;
+	min-width: 960px;
+}
+.main{
+	width:$pageWidth;
+	margin:$marginContent;
+	background-color: $backgroundColor;
+}
+#header{
+	width: 100%;
+	font-family: $fontFamily;
+
+}
+.logo img{
+	border: $borderStyle;
+	width: $widthImg/2;
+	height:  $widthImg/2.5;
+}
+/* scss代码块 也可带有参数*/
+
+@mixin is-div-scroll{
+	display: inline;
+	list-style-type: none;
+	font-size: 24px;
+	font-family: "黑体";
+	font-weight: bold;
+	color: #000;
+	float: right;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+ #navigation{
+ 	@include is-div-scroll;
+ }
+@mixin a-style{
+	text-decoration: none;
+}
+/* 嵌套样式  伪类 */
+#navigation{
+	li{
+		float: left;
+		padding: 0 20px;
+		a{
+			@include a-style;
+			&:hover{color: $color;}
+		}
+	}
+}
+#content{
+	position:fixed;
+	div{
+		height:180%;
+		left:-50%;
+		position:absolute;
+		top:-50%;
+		width:200%;
+		td{
+			text-align:$textAlign;
+			vertical-align:middle;
+			img{
+				margin: $marginContent;
+				min-height:50%;
+				min-width:50%;	
+			}
+		}
+	}
+
+}
+
+@mixin ddd-prep($vert,$horz,$radius:10px){
+	border-#{$vert}-#{$horz}-radius:$radius;
+	-moz-border-#{$vert}-#{$horz}-radius:$radius;
+	-ms-border-#{$vert}-#{$horz}-radius:$radius;
+	-webkit-border-#{$vert}-#{$horz}-radius:$radius;
+	-o-border-#{$vert}-#{$horz}-radius:$radius;
+
+}
+
+#cont {
+	position: relative;				
+	margin: $marginContent;
+	z-index:70;
+	width:40%;
+	height: 42%;
+}
+.box {
+	margin: $marginContent;
+	width: 400px;
+	padding: 50px;
+	background: $color;
+	padding-bottom:100px;
+	@include ddd-prep(top,left);
+	font: 14px/2.2 Georgia, Serif;
+}
+#footer{
+	@extend #header;
+	p{
+		text-align: $textAlign;
+	}
+	margin-top: 1000px;
+}
+.popup{
+	width: 100%;
+	text-align: $textAlign;
+	overflow: hidden;
+	height: 20%;
+}
+/* 继承 */
+
+
+/* scss判断  循环 */
+
+
+
+
